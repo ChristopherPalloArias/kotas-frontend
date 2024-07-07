@@ -14,7 +14,7 @@ const AddProduct: React.FC<AddProductProps> = ({ onAddProduct }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8082/products", { name, quantity });
+      await axios.post("http://3.145.116.21:8082", { name, quantity });
       onAddProduct();
     } catch (error) {
       console.error("Error adding product:", error);
