@@ -16,7 +16,7 @@ const Home: React.FC = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://3.145.116.21:8083/products");
+      const response = await axios.get("http://3.19.188.137:8083/products");
       setProducts(response.data);
     } catch (error) {
       console.error("Error fetching products:", error);
