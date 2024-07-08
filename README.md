@@ -18,14 +18,11 @@
    - [Install Dependencies](#install-dependencies)
    - [Run the Application](#run-the-application)
    - [Evidence](#evidence)
-4. [Usage](#usage)
-   - [Verify Server Functionality](#verify-server-functionality)
-   - [Add a New Product](#add-a-new-product)
-5. [Program Execution](#program-execution)
+4. [Program Execution](#program-execution)
    - [Create Docker Image](#create-docker-image)
-6. [DockerHub](#dockerhub)
+5. [DockerHub](#dockerhub)
    - [DockerHub Repository](#dockerhub-repository)
-7. [AWS ECR, EC2 Evidences](#aws-ecr-ec2-evidences)
+6. [AWS ECR, EC2 Evidences](#aws-ecr-ec2-evidences)
    - [Configuration](#configuration)
    - [Docker](#docker)
 
@@ -85,6 +82,22 @@ The application will be available at http://localhost:3001.
 ### Evidence
 ![image](https://github.com/ChristopherPalloArias/Frontend-MinimarketMicroservices/assets/87538474/ef7228b9-e7e1-47c9-adf8-ebb7d39775b2)
 
+## Program Execution
+### Create Docker Image with DockerFile
+```sh
+docker build -t minimarket-frontend .
+```
+![Imagen de WhatsApp 2024-07-08 a las 00 45 24_9145bfe5](https://github.com/ChristopherPalloArias/Frontend-MinimarketMicroservices/assets/87538474/f4e6520c-bc06-4b46-854b-52b6ff55f2f0)
+
+## DockerHub
+### DockerHub Repository
+
+[christopherpallo2000/cp-minimarket-frontend](https://hub.docker.com/r/christopherpallo2000/cp-minimarket-frontend)
+
+Docker Pull Command
+```sh
+docker pull christopherpallo2000/cp-minimarket-frontend
+```
 
 ## AWS ECR, EC2 Evidences
 ### Configuration
