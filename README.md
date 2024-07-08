@@ -11,7 +11,7 @@
    - [Proposed Solution](#proposed-solution)
    - [Backend](#backend)
    - [Frontend](#frontend)
-2. [Benefits of Using Microservices](#benefits)
+2. [Benefits of Using Microservices](#benefits-of-using-microservice)
 3. [Installation](#installation)
    - [Requirements](#requirements)
    - [Clone the Repository](#clone-the-repository)
@@ -59,7 +59,22 @@ Implement an application based on microservices, divided into two main parts:
 3. **Maintainability:** The separation of responsibilities into microservices makes the code more modular and easier to maintain. Development teams can work on different services simultaneously without interfering with each other.
 4. **Resilience:** If one microservice fails, it does not necessarily affect the other services. This improves the resilience and availability of the system as a whole.
 
+## Installation
 
+### Requirements
+
+- npm (Node Package Manager)
+
+### Clone the Repository
+
+```sh
+git clone https://github.com/ChristopherPalloArias/Frontend-MinimarketMicroservices.git
+```
+
+### Install Dependencies
+```sh
+npm install
+```
 
 
 ## AWS ECR, EC2 Evidences
