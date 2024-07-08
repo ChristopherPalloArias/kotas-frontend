@@ -61,6 +61,7 @@ Implement an application based on microservices, divided into two main parts:
 
 
 
+
 ## AWS ECR, EC2 Evidences
 ### Configuration
 **✔️ Step 1: Create a Repository in AWS ECR.**
@@ -186,4 +187,8 @@ This will successfully login you into your AWS ECR repository.**
 ![image](https://github.com/ChristopherPalloArias/Microservice-CreateProduct-Service/assets/167264603/634da2c5-0475-4ee8-b54f-19494357cff1)
 
 ![image](https://github.com/ChristopherPalloArias/Microservice-CreateProduct-Service/assets/167264603/efedfde4-ec67-48dc-aa12-f42bcbb2b5d5)
+
+
+![image](https://github.com/ChristopherPalloArias/Microservice-CreateProduct-Service/assets/167264603/687a429c-c008-48f4-8cd7-9e38b47f9948)
+
 
