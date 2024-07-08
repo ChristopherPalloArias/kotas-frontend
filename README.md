@@ -170,6 +170,8 @@ This will successfully login you into your AWS ECR repository.**
 
 ![image](https://github.com/ChristopherPalloArias/Microservice-CreateProduct-Service/assets/167264603/fd295f6a-371a-4796-9e5a-cc7c2e0c719b)
 
+![image](https://github.com/ChristopherPalloArias/Microservice-CreateProduct-Service/assets/167264603/687a429c-c008-48f4-8cd7-9e38b47f9948)
+
 **We go to our instance on EC2 to verify and capture the IPv4 Public to access our application**
 
 ![image](https://github.com/ChristopherPalloArias/Microservice-CreateProduct-Service/assets/167264603/85205217-b9e3-4587-93e0-1b22983ff446)
@@ -187,8 +189,3 @@ This will successfully login you into your AWS ECR repository.**
 ![image](https://github.com/ChristopherPalloArias/Microservice-CreateProduct-Service/assets/167264603/634da2c5-0475-4ee8-b54f-19494357cff1)
 
 ![image](https://github.com/ChristopherPalloArias/Microservice-CreateProduct-Service/assets/167264603/efedfde4-ec67-48dc-aa12-f42bcbb2b5d5)
-
-
-![image](https://github.com/ChristopherPalloArias/Microservice-CreateProduct-Service/assets/167264603/687a429c-c008-48f4-8cd7-9e38b47f9948)
-
-
