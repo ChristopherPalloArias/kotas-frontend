@@ -16,7 +16,7 @@
    - [Requirements](#requirements)
    - [Clone the Repository](#clone-the-repository)
    - [Install Dependencies](#install-dependencies)
-   - [Start the Server](#start-the-server)
+   - [Run the Application](#run-the-application)
    - [Evidence](#evidence-create)
 4. [Usage](#usage)
    - [Verify Server Functionality](#verify-server-functionality)
@@ -75,6 +75,15 @@ git clone https://github.com/ChristopherPalloArias/Frontend-MinimarketMicroservi
 ```sh
 npm install
 ```
+
+### Run the Application
+```sh
+npm run dev
+```
+The application will be available at http://localhost:3001.
+
+### Evidence
+![image](https://github.com/ChristopherPalloArias/Frontend-MinimarketMicroservices/assets/87538474/ef7228b9-e7e1-47c9-adf8-ebb7d39775b2)
 
 
 ## AWS ECR, EC2 Evidences
