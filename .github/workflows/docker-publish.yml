@@ -1,0 +1,78 @@
+name: Docker
+
+on:
+  schedule:
+    - cron: '45 10 * * *'
+  push:
+    branches: [ "main" ]
+    tags: [ 'v*..' ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Install cosign
+        run: |
+          curl -LO https://github.com/sigstore/cosign/releases/download/v2.2.0/cosign-linux-amd64
+          chmod +x cosign-linux-amd64
+          sudo mv cosign-linux-amd64 /usr/local/bin/cosign
+
+      - name: Log into registry docker.io
+        uses: docker/login-action@v2
+        with:
+          registry: docker.io
+          username: "christopherpallo2000"
+          password: "dckr_pat_hOhvzH9-Qx1VYFiznfgLSeDLm5s"
+
+      - name: Check if Docker repository exists
+        id: check-repo
+        run: |
+          repo_exists=$(curl -s -o /dev/null -w "%{http_code}" https://hub.docker.com/v2/repositories/christopherpallo2000/cp-minimarket-frontend)
+          if [ "$repo_exists" -eq 404 ]; then
+            echo "Repository does not exist. Creating repository."
+            curl -s -X POST https://hub.docker.com/v2/repositories/ -H "Content-Type: application/json" -u christopherpallo2000:dckr_pat_hOhvzH9-Qx1VYFiznfgLSeDLm5s -d '{"namespace": "christopherpallo2000", "name": "cp-minimarket-frontend", "is_private": false}'
+          else
+            echo "Repository already exists."
+          fi
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: docker.io/christopherpallo2000/cp-minimarket-frontend
+
+      - name: Build and push Docker image
+        id: build-and-push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: |
+            docker.io/christopherpallo2000/cp-minimarket-frontend:latest
+            docker.io/christopherpallo2000/cp-minimarket-frontend:${{ github.sha }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Sign the published Docker image
+        env:
+          TAGS: docker.io/christopherpallo2000/cp-minimarket-frontend:latest
+          DIGEST: ${{ steps.build-and-push.outputs.digest }}
+        run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
