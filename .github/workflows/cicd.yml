@@ -22,8 +22,8 @@ jobs:
     runs-on: aws-ec2    
     steps:
       - name: Pull image from docker hub
-        run: docker pull christopherpallo2000/cp-minimarket-frontend:latest 
+        run: docker pull christopherpallo2000/cp-minimarket-frontend
       - name: Delete Old Container
         run: docker rm -f reactContainer
       - name: Run docker container
-        run: docker run -d -p 3001:3001 --name reactContainer christopherpallo2000/cp-minimarket-frontend   
+        run: docker run -d -p 3001:3001 --name reactContainer cp-minimarket-frontend   
