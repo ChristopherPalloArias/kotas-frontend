@@ -22,7 +22,7 @@ jobs:
     needs: build
     runs-on: aws-front   
     steps:
-      - name: Pull image from docker hub
+      - name: Pull images from docker hub
         run: docker pull christopherpallo2000/cp-minimarket-frontend:latest
       - name: Delete Old Container
         run: docker rm -f reactContainer || true
