@@ -26,4 +26,6 @@ jobs:
       - name: Delete Old Container
         run: docker rm -f reactContainer
       - name: Run docker container
-        run: docker run -d -p 3000:80 --name reactContainer christopherpallo2000/cp-minimarket-frontend   
+        run: docker run -d --name reactContainer --network my_network -p 3000:80 christopherpallo2000/cp-minimarket-frontend
+      - name: Connect to Network
+        run: docker network connect my_network reactContainer || true
