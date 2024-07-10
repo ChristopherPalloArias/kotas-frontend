@@ -25,7 +25,7 @@ const ProductList: React.FC<ProductListProps> = ({ products, onUpdateProduct }) 
 
   const handleSave = async (product: Product) => {
     try {
-      await axios.put(`http://3.19.188.137:8084/products/${product.name}`, { quantity: newQuantity });
+      await axios.put(`http://3.130.35.128:8084/products/${product.name}`, { quantity: newQuantity });
       setEditingProduct(null);
       onUpdateProduct();
     } catch (error) {
