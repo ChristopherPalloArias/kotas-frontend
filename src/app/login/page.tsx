@@ -1,6 +1,4 @@
-"use client";
-
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -8,15 +6,22 @@ export default function Home() {
   const router = useRouter();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [showNewPassword, setShowNewPassword] = useState(false);
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8081/login', { username, password });
+      const response = await axios.post('http://localhost:8081/login', { username, password, newPassword: showNewPassword ? newPassword : undefined });
       if (response.data.success) {
         router.push('/dashboard');
       } else {
-        alert('Invalid credentials');
+        if (response.data.newPasswordRequired) {
+          setShowNewPassword(true);
+          alert('New password required. Please enter a new password.');
+        } else {
+          alert('Invalid credentials');
+        }
       }
     } catch (error) {
       console.error('Login error:', error);
@@ -53,6 +58,21 @@ export default function Home() {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
+        {showNewPassword && (
+          <div className="mb-6">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="newPassword">
+              New Password
+            </label>
+            <input
+              id="newPassword"
+              type="password"
+              placeholder="New Password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+        )}
         <div className="flex items-center justify-between">
           <button
             type="submit"
